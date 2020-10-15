@@ -3,7 +3,7 @@ var ground, invisibleGround, groundImage, jump;
 
 var cloudsGroup, cloudImage;
 var obstaclesGroup, obstacle1, obstacle2, obstacle3, obstacle4, obstacle5, obstacle6;
-
+var s_gif;
 var score = 0;
 
 var gameover, gameover1, restart, restart1;
@@ -16,6 +16,7 @@ var gameState = PLAY;
 function preload(){
   trex_running = loadAnimation("trex1.png","trex3.png","trex4.png");
   trex_collided = loadAnimation("trex_collided.png");
+  s_gif = loadAnimation("scared.gif");
   
   groundImage = loadImage("ground2.png");
   
@@ -38,7 +39,7 @@ function setup() {
   createCanvas(600, 200);
   
   trex = createSprite(50,180,20,50);
-  trex.addAnimation("running", trex_running);
+  trex.addAnimation("running", s_gif);
   trex.addAnimation("collide", trex_collided); 
   trex.scale = 0.5;
   
@@ -193,7 +194,7 @@ function reset(){
   obstaclesGroup.destroyEach();
   cloudsGroup.destroyEach();
   
-  trex.changeAnimation("running", trex_running);
+  trex.changeAnimation("running", s_gif);
   
   score = 0;
   
